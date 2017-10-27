@@ -15,21 +15,19 @@ var gulp = require('gulp'),
     server = lr();
 var paths = {
     html : [
-      'src/*.html'
-    ],
-    vendors: [
-      'node_modules/jquery/dist/jquery.min.js',
-      'node_modules/bootstrap/dist/js/bootstrap.min.js'
+        'src/*.html'
     ],
     scripts: [
-      'src/js/*.js'
+        'src/js/*.js',
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/bootstrap/dist/js/bootstrap.min.js'
     ],
-    css: [
-
-
+    stylus: [
+        'src/styles/base/*.styl',
+        'src/styles/conteiners/**/*.styl',
+        'src/styles/main.styl'
     ]
 };
-
 // Options
 // Options compress
 gulp.task('copy', function() {
@@ -55,13 +53,10 @@ gulp.task('browserify', function () {
 
 // Call Stylus
 gulp.task('stylus', function () {
-    gulp.src('src/styles/main.styl')
-/*
-        .pipe(stylus({ use: bootstrap(), compress: true }))
-*/
+    return gulp.src('src/styles/main.styl')
         .pipe(plumber())
         .pipe(stylus({
-            use:[prefixer(),bootstrap()]
+            use:[ bootstrap(),prefixer()]
         }))
         .pipe(gulp.dest('build/css'));
 });
@@ -114,5 +109,5 @@ gulp.task('watch:html',function () {
 });
 gulp.task('watch', gulp.parallel('watch:js','watch:stylus','watch:html'));
 
-gulp.task('secondary',gulp.parallel('watch', 'stylus', 'imagemin', 'copy', 'server'));
+gulp.task('secondary',gulp.parallel('watch', 'stylus','imagemin', 'copy', 'server'));
 gulp.task('default' ,gulp.series('js','secondary'));
