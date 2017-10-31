@@ -3,21 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <title>Title</title>
     <link type="text/css" rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<div class="list-group">
-    <a href="#" class="list-group-item active">
-        Cras justo odio
-    </a>
-    <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-    <a href="#" class="list-group-item">Morbi leo risus</a>
-    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-    <a href="#" class="list-group-item">Vestibulum at eros</a>
-    <a href="#" class="list-group-item">Vestibulum at eros</a>
-</div>
-<script src="js/main.js"></script>
+    <header>
+        <nav id="myNavbar" class="navbar" role="navigation">
+            <div class="container-fluid container-fluid-custom">
+                <div class="navbar-header">
+                    <img class="logo" src="img/Untitled.png" alt="logo">
+                    <div class="responsive-settings">
+                        <a class="hidden-desktop profile" href="/">
+                            <img src="img/account.png" alt="Account">
+                        </a>
+                        <div class="dropdown nav navbar-nav hidden-desktop">
+                            <a data-toggle="dropdown" href="#">
+                                <img class="country-flag" src="img/United-States.png" alt="USA">
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                <li>
+                                    <a href="#">
+                                        <img class="country-flag" src="img/Mars.png" alt="Mars">
+                                        Mars
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img class="country-flag" src="img/Sierra-Leone.png" alt="Sierra-Leone">
+                                        Sierra-Leone
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="responsive-navigation collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="nav navbar-nav list-inline list-unstyled navigation ">
+                        <li>
+                            <a href="/">How to apply loan</a>
+                        </li>
+                        <li>
+                            <a href="/">How to pay</a>
+                        </li>
+                        <li>
+                            <a href="/">Renewal</a>
+                        </li>
+                        <li>
+                            <a href="/">Сonsumers</a>
+                        </li>
+                        <li>
+                            <a href="/">Contract</a>
+                        </li>
+                        <li>
+                            <a href="/">FAQ</a>
+                        </li>
+                    </ul>
+                    <div class="profile nav navbar-nav hidden-responsive">
+                        <img src="img/account.png" alt="Account">
+                        <a href="/">Profile</a>
+                    </div>
+                    <div class="dropdown nav navbar-nav hidden-responsive">
+                        <a data-toggle="dropdown" href="#">
+                            <img class="country-flag" src="img/United-States.png" alt="USA">
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li>
+                                <a href="#">
+                                    <img class="country-flag" src="img/Mars.png" alt="Mars">
+                                    Mars
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="country-flag" src="img/Sierra-Leone.png" alt="Sierra-Leone">
+                                    Sierra-Leone
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="content-block">
+            <div class="content">
+                <div id="tabs" class="tabs-custom container">
+                    <ul  class="nav nav-pills">
+                        <li class="active">
+                            <a  href="#1" data-toggle="tab">
+                                Сredit facility
+                            </a>
+                        </li>
+                        <li><a href="#2" data-toggle="tab">Sign In</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content clearfix">
+                        <div class="tab-pane active" id="1">
+
+                        </div>
+                        <div class="tab-pane" id="2">
+                            <button type="button" data-toggle="modal" data-target="#loginWindow" class="btn btn-default btn-lg">Open modal</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="loginWindow" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password
+                                        </label>
+                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">Log In</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Сancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
 </body>
 </html>

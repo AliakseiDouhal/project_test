@@ -18,9 +18,10 @@ var paths = {
         'src/*.html'
     ],
     scripts: [
-        'src/js/*.js',
         'node_modules/jquery/dist/jquery.min.js',
-        'node_modules/bootstrap/dist/js/bootstrap.min.js'
+        'node_modules/jquery-ui/build/release.js',
+        'node_modules/bootstrap/dist/js/bootstrap.min.js',
+        'src/js/*.js'
     ],
     stylus: [
         'src/styles/base/*.styl',
@@ -58,14 +59,14 @@ gulp.task('stylus', function () {
         .pipe(stylus({
             use:[ bootstrap(),prefixer()]
         }))
-        .pipe(gulp.dest('build/css'));
+        .pipe(gulp.dest('build/css/'));
 });
 
 // Call Imagemin
 gulp.task('imagemin', function () {
-    return gulp.src('src/img/**/*')
-        .pipe(plumber())
-        .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true})))
+    return gulp.src('src/img/*')
+        /*.pipe(plumber())
+        .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true})))*/
         .pipe(gulp.dest('build/img'));
 });
 
