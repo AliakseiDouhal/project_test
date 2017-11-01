@@ -26,6 +26,10 @@ var paths = {
         'src/styles/base/*.styl',
         'src/styles/conteiners/**/*.styl',
         'src/styles/main.styl'
+    ],
+    css: [
+        'node_modules/jquery-ui/themes/base/slider.css',
+        'src/styles/main.styl'
     ]
 };
 // Options
