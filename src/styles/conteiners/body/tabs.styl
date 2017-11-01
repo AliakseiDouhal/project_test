@@ -3,30 +3,33 @@
     color:  black
     background-color: #e5e3dc
     padding:  5px 15px
-  .nav-pills > li > a
-    border-radius: 0
 
 .nav-pills
-  & > li.active > a
-    &,
-    &:hover,
-    &:focus
-      color: black
-      background-color: #e5e3dc
   & > li
     width: 50%
     min-width: 120px
+
     & > a
       border-radius: 0
       background-color: #d6dadc
+
     & + li
       margin-left: 0
+
+    &.active
+      & > a
+        &,
+        &:hover,
+        &:focus
+          color: black
+          background-color: #e5e3dc
 
 .tabs-custom
   margin-left:  0
   padding-left: 12%
   padding-right: 0
   width: 51%
+
   & ul
     width: 100%
 
