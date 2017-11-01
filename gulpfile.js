@@ -19,7 +19,6 @@ var paths = {
     ],
     scripts: [
         'node_modules/jquery/dist/jquery.min.js',
-        'node_modules/jquery-ui/build/release.js',
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
         'src/js/*.js'
     ],
