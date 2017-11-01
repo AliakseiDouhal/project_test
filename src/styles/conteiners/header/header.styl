@@ -1,117 +1,149 @@
 header
-  width 100%
-  height 60px
-  background-color white
-  .container
-    margin 0
-  a
-    font-size 1.125rem
-  .container-fluid
-    display flex
-  #myNavbar
-    min-width 320px
-    display flex
-    justify-content center
-  .dropdown
-    flexAlignItemsCenter()
-    padding-left 15px
-    height 60px
-  .navbar-toggle
-    height 100%
-  img
-    height 34px
-  .logo
-    margin-top 13px
-    padding 0 45px 0 20px
-  .navbar-toggle
-    margin 12px
+  width: 100%
+  height: 60px
+
+nav
+  background-color: white
+  margin-bottom: 0
+
+img
+  height: 34px
+
+a
+  font-size: 1.125rem
+
+.container
+  margin: 0
+  &-fluid
+    display: flex
+
+.dropdown-menu
+  left: -70px
+
+#myNavbar
+  min-width: 320px
+  display: flex
+  justify-content: center
+
+.dropdown
+  flexAlignItemsCenter()
+  padding-left: 15px
+  height: 60px
+
+.navbar
+  &-nav > li > a
+    padding-top: 20px
+    padding-bottom: 20px
+  &-toggle
+    height: 100%
+    margin: 12px
     .icon-bar
-      background-color slategray
-  .list-inline
-    padding-left 15px
-    padding-right 15px
-  .navbar-nav > li > a
-    padding-top 20px
-    padding-bottom 20px
-  .profile
-    border-right solid 1px #a9a9a9
-    border-left solid 1px #a9a9a9
-    height 60px
-    flexAlignItemsCenter()
-    img
-      padding-left 5px
-      sizeHeaderIcon()
-    a
-      padding 0 15px 0 5px
-  .country-flag
+      background-color: slategray
+
+.logo
+  margin-top: 13px
+  padding: 0 45px 0 20px
+
+.list-inline
+  padding-left: 15px
+  padding-right: 15px
+
+
+.profile
+  border-right: solid 1px #a9a9a9
+  border-left: solid 1px #a9a9a9
+  height: 60px
+  flexAlignItemsCenter()
+  img
+    padding-left: 5px
     sizeHeaderIcon()
-  .responsive-settings
-    flex()
-  .nav > li > a
-    padding-left 9px
-    padding-right 9px
+  a
+    padding: 0 15px 0 5px
 
-  @media (min-width: 993px)
-    .hidden-desktop
-      hidden()
+.country-flag
+  sizeHeaderIcon()
 
-  @media (max-width: 992px)
-    .navbar-nav
-      margin 0
-    .container-fluid-custom
-      width 100%
-      flex-direction column
-    #myNavbar
-      justify-content space-between
-    .navbar-header
-        float none
-        display flex
-        justify-content space-between
-        align-items flex-start
-        flex-direction row
-      .navbar-left,.navbar-right
-        float none !important
-      .navbar-toggle
-        display block
-      .navbar-collapse
-        border-top 1px solid transparent
-        box-shadow inset 0 1px 0 rgba(255,255,255,0.1)
-      .navbar-fixed-top
-        top 0
-        border-width 0 0 1px
-      .navbar-collapse.collapse
-        display none!important
-      .navbar-nav
-        float none!important
-      .navbar-nav>li
-        float none
-      .navbar-nav>li>a
-        padding-top 10px
-        padding-bottom 10px
-      .collapse.in
-        display block !important
-      .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header
-        margin-right -15px
-        margin-left -15px
-    .responsive-navigation
-      width 100%
-      z-index 1
-      margin auto !important
-      background #f4f4f4
-      ul
-        display flex
-        flex-direction column
-        align-items center
-        /*li
-          border-bottom  solid 1px #a9a9a9*/
-    .navbar-header:before, .navbar-header:after
-      display none
-    .hidden-responsive
-      hidden()
-    .logo
-      padding-right 0
-    .profile
-      border 0
-      width 45px
-      img
-        margin auto
+.responsive-settings
+  flex()
+
+.nav > li > a
+  padding-left: 9px
+  padding-right: 9px
+
+@media (min-width: 993px)
+  .hidden-desktop
+    hidden()
+
+@media (max-width: 992px)
+  .navbar
+    &-nav
+      margin: 0
+    &-header
+      float: none
+      display: flex
+      justify-content: space-between
+      align-items: flex-start
+      flex-direction: row
+    &-left,
+    &-right
+      float: none !important
+    &-toggle
+      display: block
+    &-collapse
+      border-top: 1px solid transparent
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1)
+      &.collapse
+        display: none !important
+        &.in
+          display: block !important
+    &-fixed-top
+      top: 0
+      border-width: 0 0 1px
+    &-nav
+      float: none !important
+      & > li
+        float: none
+        & > a
+          padding-top: 10px
+          padding-bottom: 10px
+    &-header:before,
+    &-header:after
+      display: none
+
+  #myNavbar
+    justify-content: space-between
+
+  .container
+    &> navbar-collapse,
+    &> navbar-header,
+    &-fluid > .navbar-collapse,
+    &-fluid > .navbar-header
+      margin-right: -15px
+      margin-left: -15px
+    &-fluid-custom
+      width: 100%
+      padding-right: 0
+      padding-left: 0
+      flex-direction: column
+
+  .responsive-navigation
+    width: 100%
+    z-index: 1
+    margin: auto !important
+    background: #f4f4f463
+    ul
+      display: flex
+      flex-direction: column
+      align-items: center
+
+  .hidden-responsive
+    hidden()
+
+  .logo
+    padding-right: 0
+
+  .profile
+    border: 0
+    width: 45px
+    img
+      margin: auto
