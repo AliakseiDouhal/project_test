@@ -3,47 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
     <title>Title</title>
     <link type="text/css" rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <header>
-        <nav id="myNavbar" class="navbar navbar-fixed-top" role="navigation">
+        <nav id="myNavbar" class="navbar flex-navbar navbar-fixed-top" role="navigation">
             <div class="container-fluid container-fluid-custom">
                 <div class="navbar-header">
                     <img class="logo" src="img/Untitled.png" alt="logo">
-                    <div class="responsive-settings">
-                        <a class="hidden-desktop profile" href="/">
-                            <img src="img/account.png" alt="Account">
-                        </a>
-                        <div class="dropdown nav navbar-nav hidden-desktop">
-                            <a data-toggle="dropdown" href="#">
-                                <img class="country-flag" src="img/United-States.png" alt="USA">
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                <li>
-                                    <a href="#">
-                                        <img class="country-flag" src="img/Mars.png" alt="Mars">
-                                        Mars
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img class="country-flag" src="img/Sierra-Leone.png" alt="Sierra-Leone">
-                                        Sierra-Leone
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div>
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
+
                     </div>
+
                 </div>
                 <div class="responsive-navigation collapse navbar-collapse " id="navbarCollapse">
                     <ul class="nav navbar-nav list-inline list-unstyled navigation ">
@@ -65,12 +44,17 @@
                         <li>
                             <a href="/">FAQ</a>
                         </li>
+                        <li>
+                            <a href="/">FAQ</a>
+                        </li>
                     </ul>
-                    <div class="profile nav navbar-nav hidden-responsive">
+                </div>
+                <div class="user-setting">
+                    <div class="profile nav navbar-nav ">
                         <img src="img/account.png" alt="Account">
-                        <a href="/">Profile</a>
+                        <a class="visible-md visible-lg" href="/">Profile</a>
                     </div>
-                    <div class="dropdown nav navbar-nav hidden-responsive">
+                    <div class="dropdown nav navbar-nav ">
                         <a data-toggle="dropdown" href="#">
                             <img class="country-flag" src="img/United-States.png" alt="USA">
                             <b class="caret"></b>
@@ -94,62 +78,73 @@
             </div>
         </nav>
     </header>
-    <main>
-      <!-- main change div -->
-        <div class="content-block">
-          <!-- bad name -->
-            <div class="content">
-                <div id="tabs" class="tabs-custom container">
-                    <ul  class="nav nav-pills">
-                        <li class="active">
-                            <a  href="#1" data-toggle="tab">
-                                Сredit facility
-                            </a>
-                        </li>
-                        <li><a href="#2" data-toggle="tab">Sign In</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content clearfix">
-                        <div class="tab-pane active" id="1">
-                            <div id = "slider-1"></div>
-                            <div class="range-slider">
-                                <input class="input-range" type="range" value="500" min="100" max="10000">
-                                <span class="range-value"></span>
-                            </div>
+    <div class="center-block">
+        <div id="tabs" class="tabs-custom container">
+            <ul  class="nav nav-pills">
+                <li class="active">
+                    <a href="#1" data-toggle="tab">Sign In</a>
+                </li>
+                <li>
+                    <a  href="#2" data-toggle="tab">
+                        Сredit facility
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content clearfix">
+                <div class="tab-pane active" id="1">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input  class="form-control" id="firstName" placeholder="First Name*">
                         </div>
-                        <div class="tab-pane" id="2">
-                            <button type="button" data-toggle="modal" data-target="#loginWindow" class="btn btn-default btn-lg">Sig In</button>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input class="form-control" id="lastName" placeholder="Last Name">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input  class="form-control" id="email" placeholder="Email*">
+                        </div>
+                        <button type="submit" class="btn btn-default">Contact with me</button>
+                    </form>
+                    <span>If you are already registered, please log in:</span>
+                    <button type="button" data-toggle="modal" data-target="#loginWindow" class="btn btn-default">Sig In</button>
                 </div>
-                <!-- Modal -->
-                <div class="modal fade" id="loginWindow" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password
-                                        </label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                    </div>
-                                    <button type="submit" class="btn btn-default">Log In</button>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Сancel</button>
-                            </div>
-                        </div>
+                <div class="tab-pane" id="2">
+                    <div class="range-slider">
+                        <input class="input-range" type="range" value="500" min="100" max="10000">
+                        <span class="range-value"></span>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+        <!-- Modal -->
+        <div class="modal fade" id="loginWindow" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password
+                                </label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-default">Log In</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Сancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="slider"></div>
     <script src="js/main.js"></script>
 </body>
 </html>

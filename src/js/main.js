@@ -9,3 +9,8 @@ $(function() {
         value.html(this.value);
     });
 });
+$(document).ready(function () {
+    $(".navbar-toggle").on("click", function () {
+        $(this).toggleClass("active");
+    });
+});

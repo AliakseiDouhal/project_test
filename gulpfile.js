@@ -28,7 +28,6 @@ var paths = {
         'src/styles/main.styl'
     ],
     css: [
-        'node_modules/jquery-ui/themes/base/slider.css',
         'src/styles/main.styl'
     ]
 };
@@ -57,11 +56,12 @@ gulp.task('browserify', function () {
 
 // Call Stylus
 gulp.task('stylus', function () {
-    return gulp.src('src/styles/main.styl')
+    return gulp.src(paths.css)
         .pipe(plumber())
         .pipe(stylus({
             use:[ bootstrap(),prefixer()]
         }))
+        .pipe(concat('main.css'))
         .pipe(gulp.dest('build/css/'));
 });
 
