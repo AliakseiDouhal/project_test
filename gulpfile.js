@@ -10,6 +10,9 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     prefixer = require('autoprefixer-stylus'),
     concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    pump = require('pump'),
+    cleanCSS = require('gulp-clean-css'),
     browserSync = require('browser-sync'),
     bootstrap = require('bootstrap-styl'),
     server = lr();
@@ -19,6 +22,7 @@ var paths = {
     ],
     scripts: [
         'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/jquery-ui-dist/jquery-ui.js',
         'node_modules/bootstrap/dist/js/bootstrap.min.js',
         'src/js/*.js'
     ],
@@ -28,6 +32,7 @@ var paths = {
         'src/styles/main.styl'
     ],
     css: [
+        'node_modules/jquery-ui-dist/jquery-ui.min.css',
         'src/styles/main.styl'
     ]
 };
@@ -39,6 +44,7 @@ gulp.task('copy', function() {
 });
 
 // Call Uglify and Concat JS
+/*
 gulp.task('js', function () {
     return gulp.src(paths.scripts)
         .pipe(plumber())
@@ -46,6 +52,19 @@ gulp.task('js', function () {
         .pipe(gulp.dest('build/js'));
 });
 
+*/
+
+gulp.task('js', function (cb) {
+    pump([
+            gulp.src(paths.scripts),
+            plumber(),
+            concat('main.js'),
+            uglify(),
+            gulp.dest('build/js')
+        ],
+        cb
+    );
+});
 /*// Call Uglify and Concat JS
 gulp.task('browserify', function () {
     return gulp.src('src/js/main.js')
@@ -62,14 +81,20 @@ gulp.task('stylus', function () {
             use:[ bootstrap(),prefixer()]
         }))
         .pipe(concat('main.css'))
+        .pipe(cleanCSS({debug: true}, function(details) {
+            console.log(details.name + ': ' + details.stats.originalSize);
+            console.log(details.name + ': ' + details.stats.minifiedSize);
+        }))
         .pipe(gulp.dest('build/css/'));
 });
 
 // Call Imagemin
 gulp.task('imagemin', function () {
     return gulp.src('src/img/*')
-        /*.pipe(plumber())
-        .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true})))*/
+        .pipe(plumber())
+/*
+        .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true})))
+*/
         .pipe(gulp.dest('build/img'));
 });
 
@@ -95,7 +120,7 @@ gulp.task('server', function () {
             baseDir: './build/',
             host: 'localhost',
             port: 8080,
-            index: 'main.html',
+            index: 'index.html',
             open: true,
             tunnel: true
         }
